@@ -7,21 +7,16 @@ package Teste;
 
 import Entidades.Categoria;
 import Entidades.Produto;
+import Ultil.Hibernate;
 import java.io.IOException;
 import java.util.Calendar;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
 
 /**
  *
  * @author Izidio
  */
 public class Teste {
-
-    static SessionFactory factory = new Configuration().configure().buildSessionFactory();
-    static Session session;
 
     public static void main(String[] args) throws IOException {
         Produto produto1 = new Produto();
@@ -52,34 +47,12 @@ public class Teste {
         produto2.setValidade(c2);
         produto2.setCategoria(categoria);
 
-        start_db();
-        set_db(categoria);
-        set_db(produto1);
-        set_db(produto2);
-
-        end_db();
-    }
-
-    static void start_db() {
-        session = factory.openSession();
-        session.beginTransaction();
-        System.out.println("Sessão Iniciada!");
-    }
-
-    static void end_db() {
-        session.flush();
-        session.getTransaction().commit();
-        session.close();
-        factory.close();
-        System.out.println("Sessão Finalizada!");
-    }
-
-    static void set_db(Object obj) {
-        System.out.println("Inserindo arquivos no Banco...");
-        session.flush();
-        session.save(obj);
-        System.out.println("Arquivos Inseridos!");
-
+        //Util.Hibernate
+        Hibernate.start_db();
+        Hibernate.set_db(categoria);
+        Hibernate.set_db(produto1);
+        Hibernate.set_db(produto2);
+        Hibernate.end_db();
     }
 
 }
