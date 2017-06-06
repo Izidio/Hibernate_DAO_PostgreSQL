@@ -13,6 +13,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
+import org.hibernate.query.Query;
 
 /**
  *
@@ -52,6 +53,13 @@ public class Hibernate {
         List results = crit.list();
         return results;
 
+    }
+
+    public static List HQL(String hql) {
+        Query query = session.createQuery(hql);
+        query.setDouble("preco", 25.0);
+        List results = query.list();
+        return results;
     }
 
 }
