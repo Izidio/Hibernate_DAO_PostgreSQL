@@ -5,19 +5,24 @@
  */
 package Ultil;
 
+import Entidades.Retail;
+import java.util.List;
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Restrictions;
 
 /**
  *
  * @author Izidio
  */
 public class Hibernate {
-    
+
     static SessionFactory factory = new Configuration().configure().buildSessionFactory();
     static Session session;
-    
+
     public static void start_db() {
         session = factory.openSession();
         session.beginTransaction();
@@ -37,6 +42,15 @@ public class Hibernate {
         session.flush();
         session.save(obj);
         System.out.println("Arquivos Inseridos!");
+
+    }
+
+    public static List get_db(String campo, String referencia) {
+        Criteria crit = session.createCriteria(Retail.class);
+        crit.add(Restrictions.gt(campo, referencia));
+        crit.addOrder(Order.desc(campo));
+        List results = crit.list();
+        return results;
 
     }
 
