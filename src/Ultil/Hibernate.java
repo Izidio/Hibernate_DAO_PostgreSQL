@@ -47,8 +47,8 @@ public class Hibernate {
 
     public static List get_db(String campo, String referencia, Object obj) {
         Criteria crit = session.createCriteria(obj.getClass());
-//        crit.add(Restrictions.gt(campo, referencia));
-//        crit.addOrder(Order.desc(campo));
+        crit.add(Restrictions.gt(campo, referencia));
+        crit.addOrder(Order.desc(campo));
         List results = crit.list();
         return results;
 

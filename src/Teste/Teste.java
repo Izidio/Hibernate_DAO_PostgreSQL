@@ -58,7 +58,7 @@ public class Teste {
 
         Hibernate.start_db();
 
-        List a = Hibernate.get_db("country", "France", retail);
+        List a = Hibernate.get_db("Country", "France", retail);
         System.out.println("Foram achadas: " + a.size() + " referências");
 
         Hibernate.end_db();
