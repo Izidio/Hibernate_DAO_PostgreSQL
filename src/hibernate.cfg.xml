@@ -22,6 +22,7 @@
         <mapping class="Entidades.Categoria"/>
         <mapping class="Entidades.Produto"/>
         <mapping class="Entidades.IndiceGeral"/>
+        <mapping class="Entidades.Retail"/>
     
     
     </session-factory>

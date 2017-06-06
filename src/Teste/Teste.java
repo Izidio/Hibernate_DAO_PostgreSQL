@@ -7,6 +7,7 @@ package Teste;
 
 import Entidades.Categoria;
 import Entidades.Produto;
+import Entidades.Retail;
 import Ultil.Hibernate;
 import java.io.IOException;
 import java.util.Calendar;
@@ -53,9 +54,13 @@ public class Teste {
 //        Hibernate.set_db(produto1);
 //        Hibernate.set_db(produto2);
 //        Hibernate.end_db();
+        Retail retail = new Retail();
+
         Hibernate.start_db();
-        List a = Hibernate.get_db("country", "United Kingdom");
+
+        List a = Hibernate.get_db("country", "France", retail);
         System.out.println("Foram achadas: " + a.size() + " referências");
+
         Hibernate.end_db();
     }
 
