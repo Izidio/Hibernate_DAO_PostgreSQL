@@ -57,7 +57,6 @@ public class Hibernate {
 
     public static List HQL(String hql) {
         Query query = session.createQuery(hql);
-        query.setDouble("preco", 25.0);
         List results = query.list();
         return results;
     }

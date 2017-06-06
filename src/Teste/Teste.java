@@ -57,20 +57,14 @@ public class Teste {
         /**
          * ***********************************************************************
          */
-//Retail retail = new Retail();
-//        Hibernate.start_db();
-//
-//        List a = Hibernate.get_db("Country", "France", retail);
-//        System.out.println("Foram achadas: " + a.size() + " referências");
-//
-//        Hibernate.end_db();
-        /**
-         * ************************************************************************
-         */
+Retail retail = new Retail();
         Hibernate.start_db();
-        List a = Hibernate.HQL("from produto");
-        System.out.println("Resultados: "+a.size());
+
+        List a = Hibernate.get_db("Country", "France", retail);
+        System.out.println("Foram achadas: " + a.size() + " referências");
+
         Hibernate.end_db();
+        
     }
 
 }
