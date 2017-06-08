@@ -23,7 +23,7 @@ import javax.persistence.Table;
 public class Estabelecimento {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private long id;
     private String nome;
     @JoinColumn(name = "categoria_id")
     @OneToMany

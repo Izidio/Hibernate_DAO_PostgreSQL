@@ -5,15 +5,14 @@
  */
 package Ultil;
 
-import Entidades.Retail;
+import Entidades.Usuarios;
+import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
-import org.hibernate.query.Query;
 
 /**
  *
@@ -38,6 +37,9 @@ public class Hibernate {
         System.out.println("Sessão Finalizada!");
     }
 
+    public static Session get_session(){
+        return Hibernate.session;
+    }
     public static void set_db(Object obj) {
         System.out.println("Inserindo arquivos no Banco...");
         session.flush();
@@ -46,19 +48,49 @@ public class Hibernate {
 
     }
 
-    public static List get_db(String campo, String referencia, Object obj) {
-        Criteria crit = session.createCriteria(obj.getClass());
-        crit.add(Restrictions.gt(campo, referencia));
-        crit.addOrder(Order.desc(campo));
+    public static boolean get_db(String hash, String nome) {
+        String senha_hash = "";
+        String nome_usuario = "";
+        boolean login = false;
+        List<Usuarios> listUsers = new ArrayList();
+        Criteria crit = session.createCriteria(Usuarios.class);
+        crit.add(Restrictions.eq("senha", hash));
         List results = crit.list();
-        return results;
+        if (results.size() == 1) {
+            for (Usuarios user : listUsers) {
+                nome_usuario = user.getNome();
+                senha_hash = user.getSenha();
+            }
+            if (hash == senha_hash & nome == nome_usuario) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            if (results.size() == 0) {
+                System.out.println("Nenhuma correspondencia encontrada.");
+            } else {
+                System.out.println("Foram encontrados multiplos resultdos.");
+            }
 
+        }
+
+        return false;
     }
+    
+        public static void CSV_set_db(List lista) {
+        System.out.println("Carregando...");
+        int quantidade = 0;
+        for (int i = 0; i < lista.size(); i++) {
+            session.flush();
+            session.save(lista.get(i));
+            if (i == quantidade) {
+                System.out.println("carregados -> "+quantidade);
+                quantidade += 1000;
+            }
+        }
+        System.out.println("Todos os " + lista.size() + " dados foram inseridos!");
 
-    public static List HQL(String hql) {
-        Query query = session.createQuery(hql);
-        List results = query.list();
-        return results;
     }
 
 }

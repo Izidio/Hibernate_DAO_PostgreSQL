@@ -19,10 +19,12 @@
         <property name="hbm2ddl.auto">update</property>
     
         <!--names the annoted entity class -->
-        <mapping class="Entidades.Categoria"/>
+        <mapping class="Entidades.Produto_Categoria"/>
         <mapping class="Entidades.Produto"/>
-        <mapping class="Entidades.IndiceGeral"/>
+        <mapping class="Entidades.Estabelecimento"/>
         <mapping class="Entidades.Retail"/>
+        <mapping class="Entidades.Usuarios"/>
+        <mapping class="Entidades.Usuarios_Categoria"/>
     
     
     </session-factory>

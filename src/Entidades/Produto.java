@@ -42,7 +42,7 @@ public class Produto {
 
     @JoinColumn(name = "categoria_id")
     @ManyToOne
-    private Categoria categoria;
+    private Produto_Categoria categoria;
 
     /**
      * @return the validade
@@ -117,14 +117,14 @@ public class Produto {
     /**
      * @return the categoria
      */
-    public Categoria getCategoria() {
+    public Produto_Categoria getCategoria() {
         return categoria;
     }
 
     /**
      * @param categoria the categoria to set
      */
-    public void setCategoria(Categoria categoria) {
+    public void setCategoria(Produto_Categoria categoria) {
         this.categoria = categoria;
     }
 
