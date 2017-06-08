@@ -72,15 +72,15 @@ public class Teste_Usuarios_Insere {
         //funcoes do banco
         hibernate.start_db();
 
-        userDAO.salvar(usuario1, hibernate.get_session());
-        userDAO.salvar(usuario2, hibernate.get_session());
-        userDAO.salvar(usuario3, hibernate.get_session());
-        userDAO.salvar(usuario4, hibernate.get_session());
-
         catDao.salvar(categoria1, hibernate.get_session());
         catDao.salvar(categoria2, hibernate.get_session());
         catDao.salvar(categoria3, hibernate.get_session());
         catDao.salvar(categoria4, hibernate.get_session());
+
+        userDAO.salvar(usuario1, hibernate.get_session());
+        userDAO.salvar(usuario2, hibernate.get_session());
+        userDAO.salvar(usuario3, hibernate.get_session());
+        userDAO.salvar(usuario4, hibernate.get_session());
 
         Hibernate.end_db();
     }

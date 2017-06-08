@@ -64,6 +64,7 @@ public class Teste_Produtos_Categorias {
         dao_cat_usu.salvar(produto2, hibernate.get_session());
 
         hibernate.end_db();
+        
     }
 
 }

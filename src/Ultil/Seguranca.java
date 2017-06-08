@@ -17,7 +17,7 @@ public class Seguranca {
       MessageDigest m = MessageDigest.getInstance("MD5");
       m.update(texto.getBytes(), 0, texto.length());
       hash=new BigInteger(1,m.digest()).toString(16);
-      System.out.println("texto: "+texto+"\nMD5: "+hash);
+   
   return hash;
   }  
 }

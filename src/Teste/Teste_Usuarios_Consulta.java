@@ -31,14 +31,16 @@ public class Teste_Usuarios_Consulta {
         String nome3 = "Izidio Sousa";
         String nome4 = "Izidio Sousa de Carvalho";
 
-        String usuario_nome = nome1;
-
+        String usuario_nome = "izidio_carvalho";
+        hibernate.start_db();
+//        System.out.println(user.get_db(hibernate.get_session()));
         boolean resultado = user.login(seguranca.gerarHash(s1), usuario_nome, hibernate.get_session());
+        
         if (resultado) {
             System.out.println("Seja Bem-Vindo " + usuario_nome);
         } else {
             System.out.println("usuario e/ou senha invalido(s)");
         }
-
+        hibernate.end_db();
     }
 }
