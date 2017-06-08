@@ -5,11 +5,10 @@
  */
 package Teste;
 
-import DAO.UsuariosDAO;
+import Model.DAO.UsuariosDAO;
 import Ultil.Hibernate;
 import Ultil.Seguranca;
 import java.security.NoSuchAlgorithmException;
-import javax.swing.JOptionPane;
 
 /**
  *

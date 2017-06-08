@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package DAO;
+package Model.DAO;
 
-import Entidades.Produto;
+import Entidades.Estabelecimento;
 import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.Criteria;
@@ -15,7 +15,7 @@ import org.hibernate.Session;
  *
  * @author Izidio
  */
-public class ProdutoDAO implements Interfaces.Dao {
+public class EstabelecimentoDAO implements Interfaces.Dao {
 
     @Override
     public void salvar(Object obj, Session session) {
@@ -27,8 +27,8 @@ public class ProdutoDAO implements Interfaces.Dao {
 
     @Override
     public List get_db(Session session) {
-        List<Produto> listProdutos = new ArrayList();
-        Criteria crit = session.createCriteria(Produto.class);
+        List<Estabelecimento> listEstabelecimentos = new ArrayList();
+        Criteria crit = session.createCriteria(Estabelecimento.class);
         List results = crit.list();
 
         return results;

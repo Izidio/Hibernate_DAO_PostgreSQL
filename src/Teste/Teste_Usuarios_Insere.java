@@ -5,8 +5,8 @@
  */
 package Teste;
 
-import DAO.UsuariosDAO;
-import DAO.Usuarios_CategoriaDAO;
+import Model.DAO.UsuariosDAO;
+import Model.DAO.Usuarios_CategoriaDAO;
 import Entidades.Usuarios;
 import Entidades.Usuarios_Categoria;
 import Ultil.Hibernate;
